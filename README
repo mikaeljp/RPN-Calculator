@@ -1,0 +1,19 @@
+RPN calculator
+
+Written in Python 2.7.2 using the standard library
+
+To fire up the calculator just launch form.py from the command line.
+
+All of the functionality can be accessed via brains.py but the UI lives in form.py.
+
+This is my first useful TK project, so there's plenty of room for improvement in my understanding of GUI programming.  All of my previous programs have been command line interface only, and mostly functional in approach.
+
+The calculator is built on a Stack() class in brains.py that holds a deque of floats.  There's a method for adding floats to the deque or duplicating the topmost float.  It also has a method for pulling one or two floats off the deque and performing some function to those floats and then returning the result to the deque.  I wrote some of the functions in brains.py and accessed some others from the math module.
+
+That's about it for the guts of the program.  RPN is pretty easy.
+
+Form.py has an App() class that creates it's own Stack instance and has some methods to use the underlying Stack methods.  Maybe I should have written the Stack class directly in the App class?  It seems like that would be easier.  
+
+The buttons are handled in App.buttonDex which is a dictionary of bound keys to the button parameters.  There are a few buttons outside of the dictionary that aren't bound to any keys and I couldn't think of a better way to create them.  At least most of the buttons are created on one line instead of three.
+
+When the deque is empty the leftmost column of the grid is really narrow as there's nothing to display.  I don't know how to set a fixed width for it so it looks less goofy at startup.
